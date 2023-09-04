@@ -19,6 +19,7 @@ public class HotelManagementRepository {
     Map<String,Booking> BookingDB = new HashMap<>() ;
 
     public String addHotel(Hotel hotel) {
+        if(HotelDB.containsKey(hotel)) return "FAILURE" ;
         if( hotel == null || hotel.getHotelName() == null ){
             return "FAILURE" ;
         }
