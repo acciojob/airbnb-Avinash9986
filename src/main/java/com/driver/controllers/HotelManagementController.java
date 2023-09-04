@@ -19,8 +19,8 @@ import java.util.List;
 @RequestMapping("/hotel")
 public class HotelManagementController {
 
-    @Autowired
-    HotelManagementService hotelManagementService;
+
+    HotelManagementService hotelManagementService = new HotelManagementService() ;
 
 
     @PostMapping("/add-hotel")
