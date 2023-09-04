@@ -31,9 +31,8 @@ public class HotelManagementController {
         //Incase somebody is trying to add the duplicate hotelName return FAILURE
         //in all other cases return SUCCESS after successfully adding the hotel to the hotelDb.
 
-        String str =  hotelManagementService.addHotel(hotel) ;
-        if (str != null) return str ;
-        return null;
+        return hotelManagementService.addHotel(hotel) ;
+
     }
 
     @PostMapping("/add-user")
@@ -41,9 +40,8 @@ public class HotelManagementController {
 
         //You need to add a User Object to the database
         //Assume that user will always be a valid user and return the aadharCardNo of the user
-        int temp =  hotelManagementService.addUser(user) ;
-        if (temp != 0) return temp ;
-       return null;
+        return hotelManagementService.addUser(user) ;
+
     }
 
     @GetMapping("/get-hotel-with-most-facilities")
@@ -52,9 +50,8 @@ public class HotelManagementController {
         //Out of all the hotels we have added so far, we need to find the hotelName with most no of facilities
         //Incase there is a tie return the lexicographically smaller hotelName
         //Incase there is not even a single hotel with atleast 1 facility return "" (empty string)
-        String str =  hotelManagementService.getHotelWithMostFacilities() ;
-        if (str != null) return str ;
-        return null ;
+        return hotelManagementService.getHotelWithMostFacilities() ;
+
 //        return null;
     }
 
@@ -67,9 +64,8 @@ public class HotelManagementController {
         //Calculate the total amount paid by the person based on no. of rooms booked and price of the room per night.
         //If there arent enough rooms available in the hotel that we are trying to book return -1 
         //in other case return total amount paid
-        int temp =  hotelManagementService.bookARoom(booking) ;
-        if (temp != 0) return temp ;
-        return 0 ;
+        return hotelManagementService.bookARoom(booking) ;
+
 //        return 0;
     }
     
@@ -77,9 +73,8 @@ public class HotelManagementController {
     public int getBookings(@PathVariable("aadharCard")Integer aadharCard)
     {
         //In this function return the bookings done by a person
-        int temp =  hotelManagementService.getBookings(aadharCard) ;
-        if (temp != 0) return temp ;
-        return 0 ;
+        return hotelManagementService.getBookings(aadharCard) ;
+
 //        return 0;
     }
 
@@ -90,9 +85,8 @@ public class HotelManagementController {
         //If the hotel is already having that facility ignore that facility otherwise add that facility in the hotelDb
         //return the final updated List of facilities and also update that in your hotelDb
         //Note that newFacilities can also have duplicate facilities possible
-        Hotel hotel =  hotelManagementService.updateFacilities(newFacilities,hotelName) ;
-        if (hotel != null) return hotel ;
-        return null ;
+        return hotelManagementService.updateFacilities(newFacilities,hotelName) ;
+
 //        return null;
     }
 
