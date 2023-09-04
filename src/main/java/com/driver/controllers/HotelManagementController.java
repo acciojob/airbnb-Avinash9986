@@ -35,11 +35,12 @@ public class HotelManagementController {
         //Incase somebody is trying to add the duplicate hotelName return FAILURE
         //in all other cases return SUCCESS after successfully adding the hotel to the hotelDb.
 
+
+
+
+
+        if (hotel == null) return null ;
         return hotelManagementService.addHotel(hotel) ;
-
-
-
-//        return null;
     }
 
     @PostMapping("/add-user")
@@ -47,11 +48,9 @@ public class HotelManagementController {
 
         //You need to add a User Object to the database
         //Assume that user will always be a valid user and return the aadharCardNo of the user
-//        return hotelManagementService.addUser(user) ;
-        if (hotelManagementService.addUser(user) != null){
-            return hotelManagementService.addUser(user) ;
-        }
-        return null;
+        return hotelManagementService.addUser(user) ;
+
+//       return null;
     }
 
     @GetMapping("/get-hotel-with-most-facilities")
