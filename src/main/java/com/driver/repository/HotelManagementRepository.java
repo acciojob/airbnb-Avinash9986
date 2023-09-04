@@ -19,11 +19,11 @@ public class HotelManagementRepository {
     Map<String,Booking> BookingDB = new HashMap<>() ;
 
     public String addHotel(Hotel hotel) {
-        if(hotel.getHotelName() == null || hotel == null){
+        if( hotel == null || hotel.getHotelName() == null ){
             return "FAILURE" ;
         }
         for (String hotell : HotelDB.keySet()){
-            if(hotell == null && hotell == hotel.getHotelName()){
+            if(hotell == null && Objects.equals(hotell, hotel.getHotelName())){
                 return "FAILURE" ;
             }
         }
@@ -114,12 +114,12 @@ public class HotelManagementRepository {
 
     public Hotel updateFacilities(List<Facility> newFacilities, String hotelName) {
         for (String hotel_name : HotelDB.keySet()){
-            if (hotel_name == hotelName) {
+            if (Objects.equals(hotel_name, hotelName)) {
                 Hotel hotel = HotelDB.get(hotelName) ;
                 List<Facility> list = hotel.getFacilities();
-                for (int i = 0 ; i < newFacilities.size() ; i++){
-                    if (!list.contains(newFacilities.get(i))){
-                        list.add(newFacilities.get(i)) ;
+                for (Facility newFacility : newFacilities) {
+                    if (!list.contains(newFacility)) {
+                        list.add(newFacility);
                     }
                 }
             }
