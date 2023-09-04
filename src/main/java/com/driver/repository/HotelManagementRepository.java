@@ -1,4 +1,4 @@
-package com.driver.controllers;
+package com.driver.repository;
 
 
 import com.driver.model.Booking;
