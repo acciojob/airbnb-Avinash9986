@@ -79,8 +79,9 @@ public class HotelManagementController {
     @GetMapping("/get-bookings-by-a-person/{aadharCard}")
     public int getBookings(@PathVariable("aadharCard")Integer aadharCard)
     {
-        //In this function return the bookings done by a person 
-        return 0;
+        //In this function return the bookings done by a person
+        return hotelManagementService.getBookings(aadharCard) ;
+//        return 0;
     }
 
     @PutMapping("/update-facilities")
@@ -90,7 +91,8 @@ public class HotelManagementController {
         //If the hotel is already having that facility ignore that facility otherwise add that facility in the hotelDb
         //return the final updated List of facilities and also update that in your hotelDb
         //Note that newFacilities can also have duplicate facilities possible
-        return null;
+        return hotelManagementService.updateFacilities(newFacilities,hotelName) ;
+//        return null;
     }
 
 }

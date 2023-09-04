@@ -100,4 +100,30 @@ public class HotelManagementRepository {
         }
         return totalAmount ;
     }
+
+    public int getBookings(Integer aadharCard) {
+        int count = 0 ;
+        for (String bookingId : BookingDB.keySet()){
+            Booking booking = BookingDB.get(bookingId) ;
+            if(booking.getBookingAadharCard() == aadharCard){
+                count++ ;
+            }
+        }
+        return count ;
+    }
+
+    public Hotel updateFacilities(List<Facility> newFacilities, String hotelName) {
+        for (String hotel_name : HotelDB.keySet()){
+            if (hotel_name == hotelName) {
+                Hotel hotel = HotelDB.get(hotelName) ;
+                List<Facility> list = hotel.getFacilities();
+                for (int i = 0 ; i < newFacilities.size() ; i++){
+                    if (!list.contains(newFacilities.get(i))){
+                        list.add(newFacilities.get(i)) ;
+                    }
+                }
+            }
+        }
+        return HotelDB.get(hotelName) ;
+    }
 }
