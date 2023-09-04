@@ -23,7 +23,7 @@ public class HotelManagementRepository {
             return "FAILURE" ;
         }
         for (String hotell : HotelDB.keySet()){
-            if(hotell == hotel.getHotelName()){
+            if(hotell == null && hotell == hotel.getHotelName()){
                 return "FAILURE" ;
             }
         }
@@ -44,7 +44,7 @@ public class HotelManagementRepository {
 
     public String getHotelWithMostFacilities() {
         int NoOfFacilities = 0 ;
-        String HotelName = null ;
+        String HotelName = "" ;
         for (String hotelName : HotelDB.keySet()) {
             Hotel hotel = HotelDB.get(hotelName) ;
             List<Facility> facilities = hotel.getFacilities() ;
